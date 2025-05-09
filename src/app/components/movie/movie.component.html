@@ -1,0 +1,35 @@
+<div class="container-md my-4">
+  <div class="card shadow-lg mx-auto" style="max-width: 1000px;">
+    <div class="card-body text-center">
+      <h2 class="card-title">{{ movie?.title }}</h2>
+
+      <img *ngIf="movie.cover" [src]="movie?.cover" class="card-img-top rounded mb-3" style="max-width: 300px; height: auto;">
+
+      <p><strong>Año:</strong> {{ movie?.year }}</p>
+      <p><strong>Sinopsis:</strong> {{ movie?.synopsis }}</p>
+      <p><strong>Creado el:</strong> {{ movie?.created_at | date:'short' }}</p>
+      <p><strong>Última modificación:</strong> {{ movie?.updated_at | date:'short' }}</p>
+
+      <div class="row justify-content-center gap-2 mt-4">
+        <div class="col-12 col-sm-2">
+          <a [routerLink]="['/editar', movie.id]" class="btn btn-success w-100 btn-sm">
+            Editar
+          </a>
+        </div>
+
+        <div class="col-12 col-sm-2">
+          <form (ngSubmit)="onSubmit()">
+            <button type="submit" class="btn btn-success w-100 btn-sm">Eliminar</button>
+          </form>
+        </div>
+
+        <div class="col-12 col-sm-2">
+          <a routerLink='/movies' class="btn btn-success w-100 btn-sm">
+            Regresar
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

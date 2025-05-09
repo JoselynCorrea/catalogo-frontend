@@ -1,0 +1,64 @@
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="card shadow-sm" style="width: 100%; max-width: 500px;">
+    <div class="card-header bg-secondary text-white text-center">
+      <h4 class="mb-3">Agregar Película</h4>
+    </div>
+    <div class="card-body p-4">
+      <form (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+        <div class="mb-3">
+          <label for="title" class="form-label">Título</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            [(ngModel)]="movie.title"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="synopsis" class="form-label">Sinopsis</label>
+          <textarea
+            class="form-control"
+            id="synopsis"
+            name="synopsis"
+            rows="3"
+            [(ngModel)]="movie.synopsis"
+            required
+            maxlength="255"
+          ></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="year" class="form-label">Año</label>
+          <input
+            type="number"
+            class="form-control"
+            id="year"
+            name="year"
+            [(ngModel)]="movie.year"
+            required
+          />
+        </div>
+
+        <div class="mb-4">
+          <label for="cover" class="form-label">Portada (URL)</label>
+          <input
+            type="text"
+            class="form-control"
+            id="cover"
+            name="cover"
+            [(ngModel)]="movie.cover"
+            required
+          />
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+          <a routerLink="/movies" class="btn btn-success w-50 me-2">Regresar</a>
+          <button type="submit" class="btn btn-success w-50 ms-2">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
